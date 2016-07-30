@@ -3,6 +3,7 @@ from PIL import Image
 from lxml import etree as ET
 
 rootdir = '/Users/sumukhshivakumar/Desktop/rpal/xml_file_creator/images'
+rrd = '/Users/sumukhshivakumar/Desktop/rpal/xml_file_creator'
 
 for subdir, dirs, files in os.walk(rootdir):
     for d in dirs:
@@ -43,7 +44,7 @@ for subdir, dirs, files in os.walk(rootdir):
 
 
                     tree = ET.ElementTree(root)
-                    directory = rootdir + '/boundingboxes/' + d
+                    directory = rrd + '/boundingboxes/' + d
                     if not os.path.exists(directory):
                         os.makedirs(directory)
                     tree.write(directory + '/' + x +".xml", pretty_print=True)
