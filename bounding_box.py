@@ -43,5 +43,8 @@ for subdir, dirs, files in os.walk(rootdir):
 
 
                     tree = ET.ElementTree(root)
-                    # tree.write(rootdir + '/'+ d+'/' + x +".xml", pretty_print=True)
-                    tree.write(x +".xml", pretty_print=True)
+                    directory = rootdir + '/boundingboxes/' + d
+                    if not os.path.exists(directory):
+                        os.makedirs(directory)
+                    tree.write(directory + '/' + x +".xml", pretty_print=True)
+                    # tree.write(x +".xml", pretty_print=True)
